@@ -36,22 +36,24 @@ Any page or data can be rebuilt only when needed, without site visitors ever get
   </p>
 </Layout>
 
-<script>
+<script type="module">
   import * as THREE from "three";
+  import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-  // Carichiamo l'avatar
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('avatar-canvas'), alpha: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
-  const loader = new THREE.GLTFLoader();
-  loader.load('/path-to-your-avatar-model.glb', (gltf) => {
+  const loader = new GLTFLoader();
+  loader.load('/dist/models/Cute_Demon.glb', (gltf) => {
     const model = gltf.scene;
-    model.scale.set(0.3, 0.3, 0.3); // Adatta la scala
+    model.scale.set(0.3, 0.3, 0.3); // Scala il modello a 0.3
     scene.add(model);
     animate();
+  }, undefined, (error) => {
+    console.error('Errore durante il caricamento del modello:', error);
   });
 
   camera.position.z = 5;
