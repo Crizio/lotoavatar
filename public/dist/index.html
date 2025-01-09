@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="favicon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maurizio</title>
+    <!-- Link al bundle JavaScript del progetto -->
+    <script type="module" crossorigin src="/assets/index-3e4a7320.js"></script>
+    <!-- Link al CSS -->
+    <link rel="stylesheet" href="/assets/index-5ff63878.css">
+    <!-- Stile per rendere il canvas trasparente e sovrapposto -->
+    <style>
+      #avatar-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        pointer-events: none; /* L'avatar non interferisce con il resto della pagina */
+        z-index: 1000; /* Garantisce che l'avatar sia sopra gli altri elementi */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Contenitore dell'avatar 3D -->
+    <div id="avatar-container"></div>
+
+    <!-- Root del sito esistente -->
+    <div id="root"></div>
+  </body>
+</html>
